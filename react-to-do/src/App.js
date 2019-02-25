@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ToDo from './components/ToDo.js';
 
 class App extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    todos: [
+      { description: 'Walk the dog', isCompleted: true },
+      { description: 'Wash the dishes', isCompleted: false },
+      { description: 'Run 3 miles', isCompleted: false }
+    ]
+  }
+}
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learning React
-          </a>
-        </header>
+         <ul>
+         { this.state.todos.map( (todo, index) =>
+           <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } />
+         )}
+         </ul>
       </div>
     );
   }
