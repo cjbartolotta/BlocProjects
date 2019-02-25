@@ -1,0 +1,19 @@
+{
+  "name": "blocprojects",
+  "version": "1.0.0",
+  "description": "Bloc Projects root directory",
+  "main": "like_button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjbartolotta/BlocProjects.git"
+  },
+  "author": "Chris Bartolotta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjbartolotta/BlocProjects/issues"
+  },
+  "homepage": "https://github.com/cjbartolotta/BlocProjects#readme"
+}
