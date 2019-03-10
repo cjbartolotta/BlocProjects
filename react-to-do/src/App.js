@@ -7,9 +7,9 @@ class App extends Component {
   super(props);
   this.state = {
     todos: [
-      { description: 'Walk the dog', isCompleted: true },
-      { description: 'Wash the dishes', isCompleted: false },
-      { description: 'Run 3 miles', isCompleted: false }
+      { description: 'Walk the dog', isCompleted: true, id: 1 },
+      { description: 'Wash the dishes', isCompleted: false, id: 2 },
+      { description: 'Run 3 miles', isCompleted: false, id: 3 }
     ],
     newTodoDescription: ''
   }
@@ -33,12 +33,20 @@ toggleComplete(index) {
   this.setState({ todos: todos });
 }
 
+deleteToDo (id)  {
+  console.log(id)
+    var remainingToDos = this.state.todos.filter((todo) => {
+        return todo.id !== id
+    });
+    this.setState({ todos: remainingToDos })
+}
+
   render() {
     return (
       <div className="App">
          <ul>
          { this.state.todos.map( (todo, index) =>
-           <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
+           <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } onDelete={(id) => this.deleteToDo(id)} id={todo.id}  />
          )}
          </ul>
          <form onSubmit={ (e) => this.handleSubmit(e) }>
